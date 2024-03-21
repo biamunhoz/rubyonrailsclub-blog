@@ -64,7 +64,8 @@ module Administrate
 
     # Use callbacks to share common setup or constraints between actions.
     def set_article
-      @article = Article.find(params[:id])
+      #@article = Article.find(params[:id])
+      @article = Article.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
@@ -72,4 +73,4 @@ module Administrate
       params.require(:article).permit(:title, :body)
     end
   end
-end 
+end

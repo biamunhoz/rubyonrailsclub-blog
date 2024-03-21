@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :dev do
   desc "Add articles to the database"
   task add_articles: :environment do
@@ -11,7 +13,7 @@ namespace :dev do
         body: Faker::Lorem.paragraph(sentence_count: rand(100..200)),
       )
     end
-  end 
+  end
 
   def show_spinner(msg_start, msg_end = "Done!")
     spinner = TTY::Spinner.new("[:spinner] #{msg_start}")
@@ -19,5 +21,4 @@ namespace :dev do
     yield
     spinner.success("(#{msg_end})")
   end
-
 end
