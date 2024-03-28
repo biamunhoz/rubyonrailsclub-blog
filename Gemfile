@@ -44,7 +44,7 @@ gem "tzinfo-data", platforms: [:windows, :jruby]
 gem "bootsnap", require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 1.2"
 
 gem "friendly_id", "~> 5.4.0"
 gem "devise", "~> 4.9"
@@ -54,6 +54,7 @@ group :development, :test do
   gem "debug", platforms: [:mri, :windows]
   gem "faker"
   gem "tty-spinner"
+  gem "dotenv"
 end
 
 group :development do

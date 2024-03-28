@@ -1,0 +1,19 @@
+pt-BR:
+  activerecord:
+    models:
+      admin: Administrador
+      article: Artigo
+    attributes:
+      admin:
+        id: Identificador
+        email: E-mail
+        encrypted_password: Senha encriptada
+        reset_password_token: Token de reset de senha
+      article:
+        id: Identificador
+        title: Titulo
+        body: Corpo
+        created_at: Criado em
+        updated_at: Atualizado em
+        slug: Slug
+        cover_image: Imagem de Capa
