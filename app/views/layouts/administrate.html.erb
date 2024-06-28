@@ -36,26 +36,18 @@
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
-    <script>
-      Toastify({
-        text: "This is a toast",
-        duration: 3000,
-        style: {
-          background: "#cc0000",
-        }
-        }).showToast();
-
-        Toastify({
-          text: "This is a toast",
-          duration: 3000,
-          style: {
-            background: "green",
-          }
-        }).showToast();
-
-        
-    </script>
-
+    <% if notice %>
+      <script>
+          Toastify({
+            text: "<%= notice %>",
+            duration: 3000,
+            style: {
+              background: "green",
+            }
+          }).showToast();
+      </script>
+    <% end %>
+    
     <!-- script src="./../js/admin.js"></script-->
     <!-- <%= javascript_include_tag "admin", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "posts-grid", "data-turbo-track": "reload" %>
