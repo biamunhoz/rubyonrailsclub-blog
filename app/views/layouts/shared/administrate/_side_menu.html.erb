@@ -1,0 +1,53 @@
+<aside class="admin-nav" id="adminMenu">
+    <div class="row row-menu-button">
+
+      <%= link_to destroy_admin_session_path, data: { turbo_method: :delete }, class: "logout" do %>
+        <%= image_tag 'icons/white/exit.svg', alt: "exit" %>
+      <% end %>
+
+      <a href="#" id="adminMenuButton">
+        <!-- img src="./../img/icons/white/menu.svg" alt="menu" -->
+        <%= image_tag 'icons/white/menu.svg', alt: "menu" %>
+      </a>
+    </div>
+    <div class="row center">
+      <!-- <img src="./../img/logo.svg" alt="logo"> -->
+      <a href="./dashboard.html" class="logo"><%= image_tag 'logo.svg', alt: "logo" %></a>
+    </div>
+    <div class="row center column">
+      <h3 class="user-name">Fabiana Rodrigues</h3>
+      <h4 class="user-email"><%= current_admin.email %></h4>
+    </div>
+    <div class="row">
+      <nav class="menu">
+        <a href="./posts.html" class="active">
+          <div class="icon">
+            <!-- img src="./../img/icons/white/posts.svg"-->
+            <%= image_tag 'icons/white/posts.svg' %>
+          </div>
+          <label for="#">Posts</label>
+        </a>
+        <a href="#">
+          <div class="icon">
+            <!-- img src="./../img/icons/white/categories.svg" -->
+            <%= image_tag 'icons/white/categories.svg' %>
+          </div>
+          <label for="#">Categorias</label>
+        </a>
+        <a href="#">
+          <div class="icon">
+            <!-- img src="./../img/icons/white/courses.svg" -->
+            <%= image_tag 'icons/white/courses.svg' %>
+          </div>
+          <label for="#">Cursos</label>
+        </a>
+        <a href="#">
+          <div class="icon">              
+            <!-- img src="./../img/icons/white/config.svg" -->
+            <%= image_tag 'icons/white/config.svg' %>
+          </div>
+          <label for="#">Configurações</label>
+        </a>
+      </nav>
+    </div>
+  </aside>
