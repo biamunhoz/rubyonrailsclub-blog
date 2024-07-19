@@ -11,8 +11,9 @@
       </a>
     </div>
     <div class="row center">
-      <!-- <img src="./../img/logo.svg" alt="logo"> -->
-      <a href="./dashboard.html" class="logo"><%= image_tag 'logo.svg', alt: "logo" %></a>
+      <%= link_to administrate_path, class: "logo" do %>
+        <%= image_tag 'logo.svg', alt: "logo" %></a>
+      <% end %>
     </div>
     <div class="row center column">
       <h3 class="user-name">Fabiana Rodrigues</h3>
@@ -20,13 +21,14 @@
     </div>
     <div class="row">
       <nav class="menu">
-        <a href="./posts.html" class="active">
-          <div class="icon">
-            <!-- img src="./../img/icons/white/posts.svg"-->
-            <%= image_tag 'icons/white/posts.svg' %>
-          </div>
-          <label for="#">Posts</label>
-        </a>
+
+        <%= link_to administrate_articles_path, class: "active" do %>
+            <div class="icon">
+              <%= image_tag 'icons/white/posts.svg', alt: "posts" %>
+            </div>
+            <label for="#">Artigos</label>
+        <% end %>
+
         <a href="#">
           <div class="icon">
             <!-- img src="./../img/icons/white/categories.svg" -->
