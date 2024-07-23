@@ -3,15 +3,19 @@
   <td>Frontend</td>
   <td><%= article.title %></td>
   <td>
-    <%= link_to [:administrate, article], title: "Visualizar", alt:"eye" do %>
-      <%= image_tag "icons/gray/eye.svg" %>
-    <% end %>
+    <div class="icons">
+      <%= link_to [:administrate, article], title: "Visualizar", alt:"eye" do %>
+        <%= image_tag "icons/gray/eye.svg" %>
+      <% end %>
 
-    <%= link_to edit_administrate_article_path(article), title: "Editar", alt:"edit" do %>
-      <%= image_tag "icons/gray/edit.svg" %>
-    <% end %>
+      <%= link_to edit_administrate_article_path(article), title: "Editar", alt:"edit" do %>
+        <%= image_tag "icons/gray/edit.svg" %>
+      <% end %>
 
-    <a href="#" title="Deletar"><%= image_tag "icons/gray/close.svg" %></a>
+      <%= button_to [:administrate, article],  data:{ turbo:false }, method: :delete, title: "Apagar", class: "button-transparent", alt:"close" do %>
+        <%= image_tag "icons/gray/close.svg" %>
+      <% end %>
 
+    </div>
   </td>
 </tr>
