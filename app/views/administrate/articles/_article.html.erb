@@ -3,10 +3,12 @@
   <td>Frontend</td>
   <td><%= article.title %></td>
   <td>
-    <a href="#" title="Editar"><%= image_tag "icons/gray/edit.svg" %></a>
-
     <%= link_to [:administrate, article], title: "Visualizar", alt:"eye" do %>
       <%= image_tag "icons/gray/eye.svg" %>
+    <% end %>
+
+    <%= link_to edit_administrate_article_path(article), title: "Editar", alt:"edit" do %>
+      <%= image_tag "icons/gray/edit.svg" %>
     <% end %>
 
     <a href="#" title="Deletar"><%= image_tag "icons/gray/close.svg" %></a>
