@@ -66,6 +66,8 @@ group :development do
   gem "rubocop-shopify", require: false
   gem "rubocop-rails", require: false
 
+  gem "railroady"
+
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
