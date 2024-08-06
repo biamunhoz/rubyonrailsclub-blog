@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 namespace :dev do
-
   desc "Reset the database"
   task reset: :environment do
     system("rails db:drop")
@@ -17,7 +16,6 @@ namespace :dev do
     show_spinner("Adding categories to the database..") { add_categories }
   end
 
-
   desc "Add articles to the database"
   task add_articles: :environment do
     show_spinner("Adding articles to the database..") { add_articles }
@@ -26,8 +24,8 @@ namespace :dev do
   def add_categories
     ["Ruby", "Rails", "WSL", "Linux"].each do |name|
       Category.create!(name: name)
-    end 
-  end 
+    end
+  end
 
   def add_articles
     50.times do
@@ -38,7 +36,10 @@ namespace :dev do
       )
 
       image_id = rand(1..3)
-      article.cover_image.attach(io: File.open("#{Rails.root}/lib/tasks/images/article#{image_id}.jpg"), filename: "article_#{image_id}.jpg")
+      article.cover_image.attach(
+        io: File.open(Rails.root.join("lib/tasks/images/article#{image_id}.jpg").to_s),
+        filename: "article_#{image_id}.jpg",
+      )
     end
   end
 

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get "welcome/index"
 
   namespace :administrate do
-    #get "/" => "articles#index"
+    # get "/" => "articles#index"
 
     get "/" => "dashboards#index"
 

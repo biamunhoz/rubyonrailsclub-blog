@@ -4,7 +4,7 @@ module Administrate
   class ArticlesController < AdministrateController
     before_action :set_article, only: [:show, :edit, :update, :destroy, :destroy_cover_image]
     before_action :set_categories, only: [:new, :edit, :show]
-   
+
     # GET /articles or /articles.json
     def index
       @articles = Article.includes(:category).all
@@ -20,14 +20,13 @@ module Administrate
     end
 
     # GET /articles/1/edit
-    def edit      
+    def edit
     end
 
     # POST /articles or /articles.json
     def create
       @article = Article.new(article_params)
       @article.cover_image.attach(article_params[:cover_image])
-
 
       respond_to do |format|
         if @article.save
@@ -81,7 +80,7 @@ module Administrate
 
     def set_categories
       @categories = Category.all
-    end 
+    end
 
     # Only allow a list of trusted parameters through.
     def article_params
