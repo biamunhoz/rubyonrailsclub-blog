@@ -34,7 +34,7 @@
       </div>      
     </div>    
 
-    <%= button_to "Apagar artigo", [:administrate, @article], data:{ turbo:false }, method: :delete, class:"button small" if params[:action] == "show"   %>  ]    
+    <%= button_to "Apagar artigo", [:administrate, @article], data:{ turbo:false }, method: :delete, class:"button small" if params[:action] == "show"   %>
     <%= form.submit style: "display:none;" %>
   <% end %>
 </div>

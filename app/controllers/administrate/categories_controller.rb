@@ -5,68 +5,67 @@ module Administrate
       #before_action :set_article, only: [:show, :edit, :update, :destroy, :destroy_cover_image]
       #before_action :set_categories, only: [:new, :edit, :show]
   
-      # GET /articles or /articles.json
+      # GET /category or /category.json
       def index
         @categories = Category.all
       end
   
-    #   # GET /articles/1 or /articles/1.json
+    #   # GET /category/1 or /category/1.json
     #   def show
     #   end
   
-    #   # GET /articles/new
-    #   def new
-    #     @article = Article.new
-    #   end
+    #   # GET /category/new
+      def new
+        @category = Category.new
+      end
   
-    #   # GET /articles/1/edit
+    #   # GET /category/1/edit
     #   def edit
     #   end
   
-    #   # POST /articles or /articles.json
-    #   def create
-    #     @article = Article.new(article_params)
-    #     @article.cover_image.attach(article_params[:cover_image])
+    #   # POST /category or /category.json
+      def create
+        @category = Category.new(category_params)
   
-    #     respond_to do |format|
-    #       if @article.save
-    #         format.html { redirect_to(administrate_article_url(@article), notice: "Artigo foi criado com sucesso.") }
-    #         format.json { render(:show, status: :created, location: @article) }
-    #       else
-    #         format.html { render(:new, status: :unprocessable_entity) }
-    #         format.json { render(json: @article.errors, status: :unprocessable_entity) }
-    #       end
-    #     end
-    #   end
+        respond_to do |format|
+          if @category.save
+            format.html { redirect_to(administrate_category_url(@category), notice: "Categoria foi criado com sucesso.") }
+            format.json { render(:show, status: :created, location: @category) }
+          else
+            format.html { render(:new, status: :unprocessable_entity) }
+            format.json { render(json: @category.errors, status: :unprocessable_entity) }
+          end
+        end
+      end
   
-    #   # PATCH/PUT /articles/1 or /articles/1.json
+    #   # PATCH/PUT /category/1 or /category/1.json
     #   def update
     #     respond_to do |format|
-    #       if @article.update(article_params)
-    #         format.html { redirect_to(administrate_article_url(@article), notice: "Artigo foi atualizado com sucesso") }
-    #         format.json { render(:show, status: :ok, location: @article) }
+    #       if category.update(article_params)
+    #         format.html { redirect_to(administrate_article_url(category), notice: "Artigo foi atualizado com sucesso") }
+    #         format.json { render(:show, status: :ok, location: category) }
     #       else
     #         format.html { render(:edit, status: :unprocessable_entity) }
-    #         format.json { render(json: @article.errors, status: :unprocessable_entity) }
+    #         format.json { render(json: category.errors, status: :unprocessable_entity) }
     #       end
     #     end
     #   end
   
-    #   # DELETE /articles/1 or /articles/1.json
+    #   # DELETE /category/1 or /category/1.json
     #   def destroy
-    #     @article.destroy!
+    #     category.destroy!
   
     #     respond_to do |format|
-    #       format.html { redirect_to(administrate_articles_url, notice: "Artigo foi apagado com sucesso") }
+    #       format.html { redirect_to(administrate_category_url, notice: "Artigo foi apagado com sucesso") }
     #       format.json { head(:no_content) }
     #     end
     #   end
   
     #   def destroy_cover_image
-    #     @article.cover_image.purge
+    #     category.cover_image.purge
   
     #     respond_to do |format|
-    #       format.turbo_stream { render(turbo_stream: turbo_stream.remove(@article)) }
+    #       format.turbo_stream { render(turbo_stream: turbo_stream.remove(category)) }
     #     end
     #   end
   
@@ -74,8 +73,8 @@ module Administrate
   
     #   # Use callbacks to share common setup or constraints between actions.
     #   def set_article
-    #     # @article = Article.find(params[:id])
-    #     @article = Article.friendly.find(params[:id])
+    #     # category = Article.find(params[:id])
+    #     category = Article.friendly.find(params[:id])
     #   end
   
     #   def set_categories
@@ -83,8 +82,8 @@ module Administrate
     #   end
   
     #   # Only allow a list of trusted parameters through.
-    #   def article_params
-    #     params.require(:article).permit(:title, :body, :category_id, :cover_image)
-    #   end
+      def category_params
+        params.require(:category).permit(:name)
+      end
     end
-  end  
+end  
