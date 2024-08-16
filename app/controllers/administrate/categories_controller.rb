@@ -2,8 +2,8 @@
 
 module Administrate
     class CategoriesController < AdministrateController
-      #before_action :set_article, only: [:show, :edit, :update, :destroy, :destroy_cover_image]
-      #before_action :set_categories, only: [:new, :edit, :show]
+      before_action :set_category, only: [:show, :edit, :update, :destroy]
+      # before_action :set_categories, only: [:new, :edit, :show]
   
       # GET /category or /category.json
       def index
@@ -11,8 +11,8 @@ module Administrate
       end
   
     #   # GET /category/1 or /category/1.json
-    #   def show
-    #   end
+      def show
+      end
   
     #   # GET /category/new
       def new
@@ -20,8 +20,8 @@ module Administrate
       end
   
     #   # GET /category/1/edit
-    #   def edit
-    #   end
+      def edit
+      end
   
     #   # POST /category or /category.json
       def create
@@ -39,27 +39,27 @@ module Administrate
       end
   
     #   # PATCH/PUT /category/1 or /category/1.json
-    #   def update
-    #     respond_to do |format|
-    #       if category.update(article_params)
-    #         format.html { redirect_to(administrate_article_url(category), notice: "Artigo foi atualizado com sucesso") }
-    #         format.json { render(:show, status: :ok, location: category) }
-    #       else
-    #         format.html { render(:edit, status: :unprocessable_entity) }
-    #         format.json { render(json: category.errors, status: :unprocessable_entity) }
-    #       end
-    #     end
-    #   end
+      def update
+        respond_to do |format|
+          if @category.update(category_params)
+            format.html { redirect_to(administrate_category_url(@category), notice: "Categoria foi atualizada com sucesso") }
+            format.json { render(:show, status: :ok, location: @category) }
+          else
+            format.html { render(:edit, status: :unprocessable_entity) }
+            format.json { render(json: @category.errors, status: :unprocessable_entity) }
+          end
+        end
+      end
   
     #   # DELETE /category/1 or /category/1.json
-    #   def destroy
-    #     category.destroy!
+      def destroy
+        @category.destroy!
   
-    #     respond_to do |format|
-    #       format.html { redirect_to(administrate_category_url, notice: "Artigo foi apagado com sucesso") }
-    #       format.json { head(:no_content) }
-    #     end
-    #   end
+        respond_to do |format|
+          format.html { redirect_to(administrate_category_url, notice: "Categoria foi apagada com sucesso") }
+          format.json { head(:no_content) }
+        end
+      end
   
     #   def destroy_cover_image
     #     category.cover_image.purge
@@ -72,10 +72,9 @@ module Administrate
     #   private
   
     #   # Use callbacks to share common setup or constraints between actions.
-    #   def set_article
-    #     # category = Article.find(params[:id])
-    #     category = Article.friendly.find(params[:id])
-    #   end
+      def set_category
+        @category = Category.find(params[:id])
+      end
   
     #   def set_categories
     #     @categories = Category.all
