@@ -1,10 +1,4 @@
-<a href="post.html" class="item">
-
- 
-  <!-- < %= image_tag src="posts/post1.jpg", class: "item-image", alt: "post 1" %> -->
-  
-  <!--%= article.cover_image.attached? ? image_tag(article.cover_image.variant(:thumb) , class: "item-image", alt:"post 1") : 
-  image_tag("posts/post1.jpg", class: "item-image", alt:"post 1") % -->
+<%= link_to article_path(article), class: "item" do %>
 
   <%= image_tag(cover_image_fallback(article), class: "item-image", alt:"article image") %>
 
@@ -19,4 +13,5 @@
     <div class="item-author">Jackson Pires</div>
     <div class="item-date"><%= l(article.created_at, format: :only_date) %> </div>
   </div>
-</a>
+<% end %>
+
