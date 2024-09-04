@@ -181,7 +181,9 @@
 
   .share-post .socials a {
     transition: opacity $animation-transition;
-
+    background-color: white;
+    padding: 2px;
+    
     &:hover {
       opacity: 0.8;
     }
