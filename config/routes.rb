@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get "welcome/index"
 
   resources :articles, only: [:show]
-  
+
   namespace :administrate do
     # get "/" => "articles#index"
 
