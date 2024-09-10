@@ -34,7 +34,7 @@ namespace :dev do
   end
 
   def add_authors
-    5.times do 
+    5.times do
       author = Author.create!(
         name: Faker::Name.name,
         description: Faker::Lorem.paragraph(sentence_count: rand(15..20)),
@@ -42,7 +42,7 @@ namespace :dev do
         instagram_profile_url: Faker::Internet.url(host: "instagram.com"),
         twitter_profile_url: Faker::Internet.url(host: "twitter.com"),
         linkedin_profile_url: Faker::Internet.url(host: "linkedin.com"),
-        youtube_profile_url: Faker::Internet.url(host:" youtuber.com"),
+        youtube_profile_url: Faker::Internet.url(host: " youtuber.com"),
       )
 
       image_id = rand(1..5)
@@ -50,9 +50,8 @@ namespace :dev do
         io: File.open(Rails.root.join("lib/tasks/images/avatar#{image_id}.png").to_s),
         filename: "author_avatar#{image_id}.png",
       )
-
     end
-  end 
+  end
 
   def add_articles
     50.times do
