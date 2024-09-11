@@ -18,7 +18,11 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :categories
+    resources :categories do
+      member do
+        delete :destroy_cover_image
+      end
+    end
 
     resources :authors do
       member do
