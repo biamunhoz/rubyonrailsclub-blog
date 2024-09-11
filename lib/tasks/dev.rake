@@ -32,13 +32,13 @@ namespace :dev do
       category = Category.create!(
         name: name,
         description: Faker::Lorem.paragraph(sentence_count: rand(2..4)),
-        )
+      )
 
-        image_id = rand(1..8)
-        category.cover_image.attach(
-          io: File.open(Rails.root.join("lib/tasks/images/category#{image_id}.jpg").to_s),
-          filename: "category_#{image_id}.jpg",
-        )        
+      image_id = rand(1..8)
+      category.cover_image.attach(
+        io: File.open(Rails.root.join("lib/tasks/images/category#{image_id}.jpg").to_s),
+        filename: "category_#{image_id}.jpg",
+      )
     end
   end
 
