@@ -5,11 +5,11 @@ Rails.application.routes.draw do
   devise_for :admins
   get "welcome/index"
 
-  resources :articles, only: [:show]
+  resources :articles, only: [:show] do
+    resources :comments
+  end
 
   namespace :administrate do
-    # get "/" => "articles#index"
-
     get "/" => "dashboards#index"
 
     resources :articles do
