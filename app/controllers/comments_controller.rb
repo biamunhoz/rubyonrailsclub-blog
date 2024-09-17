@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
+    before_action :authenticate_user!
 
     def create
         @article = Article.friendly.find(params[:article_id])
@@ -11,8 +12,7 @@ class CommentsController < ApplicationController
 
     private
     def comments_params
-        params.require(:comment).permit(:body)
-        #.merge(user: current_user)
+        params.require(:comment).permit(:body).merge(user: current_user)
     end
 
 end
