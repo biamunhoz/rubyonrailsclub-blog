@@ -42,5 +42,4 @@ class ApplicationController < ActionController::Base
     request.referer if resource_or_scope == :user
     super
   end
-
 end
