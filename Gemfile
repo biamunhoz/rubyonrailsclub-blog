@@ -47,6 +47,7 @@ gem "bootsnap", require: false
 gem "image_processing", "~> 1.2"
 
 gem "sassc-rails"
+gem "redcarpet"
 
 gem "friendly_id", "~> 5.4.0"
 gem "devise", "~> 4.9"
